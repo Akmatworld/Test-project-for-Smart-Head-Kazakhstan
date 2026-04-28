@@ -10,13 +10,19 @@
 
 <body>
 
-<x-header />
+<div class="wrapper">
+    <div class="inner-wrapper">
+        <div class="top-side">
+            <x-header />
 
-<main>
-    @yield('content')
-</main>
+            <main class="main">
+                @yield('content')
+            </main>
+        </div>
 
-<x-footer />
+        <x-footer />
+    </div>
+</div>
 
 </body>
 </html>

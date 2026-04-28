@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-VariableFont.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,9 +13,11 @@
 }
 body {
     font-family: Arial, sans-serif;
+    background: var(--color-background);
 }
 /* Css variables */
 :root {
+    --color-main: #0C3542;
     --color-primary: #123D4B;
     --color-secondary: #A0AEB7;
     --color-white: #FFFFFF;
@@ -16,6 +26,7 @@ body {
     --color-dark-gray: #4C4C4F;
     --color-light-gray: #F2F2F5;
     --color-muted: #727276;
+    --color-background: #447787;
 }
 
 /* Header styles */
@@ -23,9 +34,186 @@ body {
 
 }
 
-/* Content */
+/* Wrapper styles */
+.wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+/* Inner wrapper styles */
+.inner-wrapper {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top side */
+.top-side {
+    background: var(--color-white);
+    height: 100vh;
+}
 
 /* Footer styles */
 .footer {
+    background: var(--color-main);
+}
+.footer__menu-block {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+.footer__menu-block h3 {
+    color: var(--color-white);
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+.footer__ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer__ul li {
+    color: var(--color-secondary);
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+.footer__ul a {
+    text-decoration: none;
+    color: inherit;
+    transition: color .3s;
+}
+.footer__ul a:hover {
+    color: var(--color-white);
+}
+.footer__divider {
+    height: 1px;
+    background: var(--color-secondary);
+    margin: 19px 0;
+}
+.footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 50px 23px;
+}
+.footer__center {
+    display: flex;
+    justify-content: space-between;
+    padding: 28px 50px 23px;
+}
+.footer__center-info-payments-images {
+    display: flex;
+    gap: 22px;
+}
+.footer__center-info {
+    max-width: 475px;
+    display: flex;
+    flex-direction: column;
+    gap: 54px;
+}
+.footer__center-info p {
+    color: var(--color-secondary);
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 0%;
+}
+.footer__center-info-payments {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.footer__center-info-payments h3 {
+    color: var(--color-white);
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+.footer__bottom p {
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: var(--color-secondary);
+}
+.footer__top {
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 50px 30px;
+}
+.footer__top-logo-block{
+    width: 169px;
+    height: 45px;
+}
+.footer__top-logo-block img {
+    width: 100%;
+    height: auto;
+}
+.footer__top-title a {
+    color: inherit;
+    text-decoration: none;
+    line-height: 20px;
+}
+.footer__top-title {
+    color: var(--color-white);
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin-bottom: 5px;
+}
+.footer__top-subtitle {
+    color: var(--color-secondary);
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
 
+/* Social media styles */
+.social-media {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+}
+.social-media__icon-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    transition: transform .3s;
+}
+.social-media__icon-block:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.social-media__icon-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
