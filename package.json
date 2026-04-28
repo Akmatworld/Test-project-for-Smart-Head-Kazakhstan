@@ -9,8 +9,10 @@
         "dev": "vite",
         "build": "vite build",
         "docker:dev": "sleep 5 && docker exec smarthead_node npm run dev",
+        "docker:migrate": "docker exec smarthead_php php artisan migrate",
+        "docker:seed": "docker exec smarthead_php php artisan db:seed",
         "build_front": "docker exec smarthead_node npm run build",
-        "docker:init": "docker exec smarthead_php composer install && docker exec smarthead_php php artisan key:generate && docker exec smarthead_node npm install && docker exec smarthead_node npm run build"
+        "docker:init": "docker exec smarthead_php composer install && docker exec smarthead_php php artisan key:generate && npm run docker:migrate && docker exec smarthead_node npm install && docker exec smarthead_node npm run build"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",

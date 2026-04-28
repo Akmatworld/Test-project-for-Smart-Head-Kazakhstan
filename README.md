@@ -1,58 +1,73 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Smart Head Kazakhstan Test Project
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is a Laravel project set up with Docker for development.
 
-## About Laravel
+## Prerequisites
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Docker and Docker Compose
+- Node.js and npm (for running helper scripts)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Getting Started
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Follow these steps to set up the project locally:
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### 1. Clone the repository
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone <repository-url>
+cd Test-project-for-Smart-Head-Kazakhstan
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. Prepare environment variables
 
-## Contributing
+```bash
+cp .env.example .env
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Start Docker containers
 
-## Code of Conduct
+```bash
+npm run docker:up
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+This will start the PHP, Nginx, and Node containers.
 
-## Security Vulnerabilities
+### 4. Initialize the project
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Run the initialization script to install dependencies, generate the application key, and run migrations:
 
-## License
+```bash
+npm run docker:init
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 5. Start Development Server (Vite)
+
+To start the Vite development server with Hot Module Replacement (HMR):
+
+```bash
+npm run docker:dev
+```
+
+*Note: There is a 5-second delay built into this command to ensure containers are ready.*
+
+## Available Scripts
+
+Defined in `package.json`:
+
+- `npm run docker:up`: Start containers.
+- `npm run docker:down`: Stop containers.
+- `npm run docker:build`: Build and start containers.
+- `npm run docker:init`: Install Composer/NPM dependencies, generate app key, and run migrations.
+- `npm run docker:migrate`: Run database migrations.
+- `npm run docker:seed`: Run database seeders.
+- `npm run docker:dev`: Run Vite dev server inside the container.
+- `npm run build_front`: Build assets for production.
+
+## Troubleshooting
+
+- **Permissions:** If you encounter permission issues with the `storage` or `bootstrap/cache` directories, you might need to adjust them:
+  ```bash
+  docker exec smarthead_php chmod -R 775 storage bootstrap/cache
+  docker exec smarthead_php chown -R www-data:www-data storage bootstrap/cache
+  ```
+- **Port Conflicts:** The project uses port `8000` for Nginx and `5173` for Vite. Ensure these ports are available on your host machine.
