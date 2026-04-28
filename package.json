@@ -3,6 +3,7 @@
     "private": true,
     "type": "module",
     "scripts": {
+        "start": "([ -f .env ] || cp .env.example .env) && touch database/database.sqlite && docker compose up -d --build && docker exec smarthead_php composer install && docker exec smarthead_php php artisan key:generate --ansi && docker exec smarthead_php php artisan migrate --seed --ansi",
         "dev": "vite",
         "build": "vite build"
     },
