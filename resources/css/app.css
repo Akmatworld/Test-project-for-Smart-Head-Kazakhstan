@@ -6,6 +6,18 @@
 body {
     font-family: Arial, sans-serif;
 }
+/* Css variables */
+:root {
+    --color-primary: #123D4B;
+    --color-secondary: #A0AEB7;
+    --color-white: #FFFFFF;
+    --color-danger: #E92B43;
+    --color-black: #000000;
+    --color-dark-gray: #4C4C4F;
+    --color-light-gray: #F2F2F5;
+    --color-muted: #727276;
+}
+
 /* Header styles */
 .header {
 
