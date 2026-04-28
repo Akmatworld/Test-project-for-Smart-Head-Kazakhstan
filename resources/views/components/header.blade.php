@@ -1,3 +1,34 @@
 <header class="header">
-    <h1>Header</h1>
+    <div class="header__banner">
+        <img src="/images/header-top-bg.png" alt="Banner">
+    </div>
+    <div class="header__top">
+        <div class="header-logo-block">
+            <img src="/images/logo.svg" alt="Logo">
+        </div>
+
+        <div class="header__top-text">
+            <div class="header__top-title">Казахстан</div>
+            <div class="header__top-subtitle">улица Тестовая 1</div>
+        </div>
+
+        <div class="header__top-text">
+            <div class="header__top-title">+7 (775) 000 00 01</div>
+            <div class="header__top-subtitle">Касса</div>
+        </div>
+
+        <div class="header__top-right-side">
+            <x-social-media />
+            <button class="header-btn">Мне пришёл билет</button>
+        </div>
+    </div>
+    <div class="header__menu">
+        <x-menu />
+
+        <button class="header-btn">Войти</button>
+        <button class="header-btn">Написать отзыв</button>
+    </div>
+    <div class="header__filter">
+        <x-filter-days />
+    </div>
 </header>

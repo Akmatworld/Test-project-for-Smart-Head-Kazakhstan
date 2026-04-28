@@ -34,11 +34,11 @@
         <div class="footer__menu-block">
             <h3>Меню</h3>
             <ul class="footer__ul">
-                <li><a href="">Афиша</a></li>
-                <li><a href="">Сеансы</a></li>
-                <li><a href="">Пушкинская карта</a></li>
-                <li><a href="">Кинотеатр</a></li>
-                <li><a href="">Контакты</a></li>
+                <li><a href="#">Афиша</a></li>
+                <li><a href="#">Сеансы</a></li>
+                <li><a href="#">Пушкинская карта</a></li>
+                <li><a href="#">Кинотеатр</a></li>
+                <li><a href="#">Контакты</a></li>
             </ul>
         </div>
 
