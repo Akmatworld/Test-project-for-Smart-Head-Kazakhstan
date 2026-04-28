@@ -24,11 +24,10 @@ services:
     node:
         image: node:20
         container_name: smarthead_node
-        init: true
         working_dir: /var/www
         ports:
             - "5173:5173"
         volumes:
             - ./:/var/www
             - /var/www/node_modules
-        command: sh -c "npm install && exec npm run dev -- --host"
+        command: sh -c "npm install && npm run dev -- --host --strictPort"
