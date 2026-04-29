@@ -12,10 +12,7 @@
             <div class="header__top-subtitle">улица Тестовая 1</div>
         </div>
 
-        <div class="header__top-text">
-            <div class="header__top-title">+7 (775) 000 00 01</div>
-            <div class="header__top-subtitle">Касса</div>
-        </div>
+        <x-dropdown />
 
         <div class="header__top-right-side">
             <x-social-media />

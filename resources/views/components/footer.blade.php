@@ -12,14 +12,7 @@
             </div>
         </div>
 
-        <div class="footer__top-text-block">
-            <div class="footer__top-title">
-                +7 (775) 000 00 01
-            </div>
-            <div class="footer__top-subtitle">
-                Касса
-            </div>
-        </div>
+        <x-dropdown />
 
         <div class="footer__top-text-block">
             <div class="footer__top-title">
